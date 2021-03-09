@@ -7,6 +7,9 @@ import rigoImage from "../../img/rigo-baby.jpg";
 export function Home() {
 	const [inputValue, setInputValue] = React.useState("");
 	const [list, setlist] = React.useState([]);
+	const validateTask = () => {
+		if (inputValue === "") alert("at least one task should be added");
+	};
 	let countItems = list.length;
 
 	return (
@@ -22,6 +25,7 @@ export function Home() {
 					type="text"
 					label="Task"
 					placeholder="input a value"
+					onFocus={validateTask}
 					onChange={e => {
 						setInputValue(e.target.value);
 					}}
@@ -31,6 +35,7 @@ export function Home() {
 							setlist(list.concat(inputValue));
 							setInputValue("");
 						}
+						validateTask();
 					}}
 				/>
 				<div className="border border-dark">
