@@ -40,7 +40,15 @@ export function Home() {
 						))}
 					</dl>
 				</div>
+
 				<div>
+					<input
+						className="btn btn-primary"
+						type="reset"
+						onClick={e => {
+							setlist([]);
+						}}
+						value="Reset"></input>
 					<p>Total of tasks: {countItems}</p>
 				</div>
 			</div>
@@ -51,13 +59,7 @@ export function Home() {
 					setlist("");
 				}}
 				value="Submit"></input> */}
-			<input
-				className="btn btn-primary"
-				type="reset"
-				onClick={e => {
-					setlist("");
-				}}
-				value="Reset"></input>
+
 			{/* for individual deletion https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array */}
 		</div>
 	);
