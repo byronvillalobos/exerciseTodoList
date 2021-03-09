@@ -8,7 +8,7 @@ export function Home() {
 	const [inputValue, setInputValue] = React.useState("");
 	const [list, setlist] = React.useState([]);
 	const validateTask = () => {
-		if (inputValue === "") alert("at least one task should be added");
+		if (inputValue === "") alert("No tasks, add a task");
 	};
 	let countItems = list.length;
 
@@ -35,7 +35,6 @@ export function Home() {
 							setlist(list.concat(inputValue));
 							setInputValue("");
 						}
-						validateTask();
 					}}
 				/>
 				<div className="border border-dark">
