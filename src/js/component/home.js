@@ -7,6 +7,7 @@ import rigoImage from "../../img/rigo-baby.jpg";
 export function Home() {
 	const [inputValue, setInputValue] = React.useState("");
 	const [list, setlist] = React.useState([]);
+	let countItems = list.length;
 
 	return (
 		<div className="container mt-5 text-center">
@@ -19,20 +20,45 @@ export function Home() {
 				<input
 					id="myInput"
 					type="text"
-					placeholder="inputValue"
+					label="Task"
+					placeholder="input a value"
 					onChange={e => {
 						setInputValue(e.target.value);
 					}}
 					value={inputValue}
 					onKeyPress={e => {
 						if (e.key === "Enter") {
-							console.log(list);
-
 							setlist(list.concat(inputValue));
+							setInputValue("");
 						}
 					}}
 				/>
+				<div className="border border-dark">
+					<dl>
+						{list.map(name => (
+							<dt key={name}> {name} </dt>
+						))}
+					</dl>
+				</div>
+				<div>
+					<p>Total of tasks: {countItems}</p>
+				</div>
 			</div>
+			{/* <input
+				className="btn btn-primary"
+				type="Submit"
+				onClick={e => {
+					setlist("");
+				}}
+				value="Submit"></input> */}
+			<input
+				className="btn btn-primary"
+				type="reset"
+				onClick={e => {
+					setlist("");
+				}}
+				value="Reset"></input>
+			{/* for individual deletion https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array */}
 		</div>
 	);
 }
